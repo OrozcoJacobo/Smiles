@@ -35,10 +35,7 @@ def visualizarJugadores():
                     cv2.rectangle(the_face, (x_, y_), (x_ + w_, y_ + h_), (50, 50, 200), 2)
 
                     if len(smile_coordinates) > 0:
-                        cv2.putText(frame, 'smiling', (x, y + h + 40), fontScale = 3, fontFace = cv2.FONT_HERSHEY_PLAIN, color = (255,255,255))
-
-
-
+                        cv2.putText(frame, 'sonriendo', (x, y + h + 40), fontScale = 3, fontFace = cv2.FONT_HERSHEY_PLAIN, color = (255,255,255))
 
             frame = imutils.resize(frame, width=640, height= 480)
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
