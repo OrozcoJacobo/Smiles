@@ -1,8 +1,10 @@
+from tkinter import *
+from tkinter import filedialog 
+from PIL import Image, ImageTk
 import cv2
+import imutils
+ 
 
-<<<<<<< Updated upstream
-#Load opencv pre-trained data on face frontals (haar cascade algorithm)
-=======
 def finalizarJugadores():
     global cap_jugadores
     cap_jugadores.release()
@@ -91,28 +93,37 @@ def elegirVideo():
 
 cap = None
 cap_jugadores = None
->>>>>>> Stashed changes
 trained_face_data = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 trained_smile_detector = cv2.CascadeClassifier('haarcascade_smile.xml')
 
-#Choose an image to detect faces in
-img = cv2.imread('RDJ.png')
+root = Tk()
 
-#Must convert to grayscale
-grayscaled_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+btn_visualizar_video = Button(root, text="Elegir y visualizar video", command=elegirVideo)
+btn_visualizar_video.grid(column=0, row=0, padx=5, pady=5, columnspan= 2)
 
-#To detect faces
-face_coordinates = trained_face_data.detectMultiScale(grayscaled_img)
+lbl_info_video = Label(root, text = "Video de entrada: ")
+lbl_info_video.grid(column=0, row=1)
 
-#Draw rectangles around the faces
-cv2.rectangle(img, (220, 143), (220+219, 143+219), (0, 255, 0), 2)
+lbl_info_video_path = Label(root, text = "Aun no se ha seleccionado un video")
+lbl_info_video_path.grid(column=1, row=1)
 
-print(face_coordinates)
 
-#To show img
-cv2.imshow('Clever Programmer Face Detector', img)
 
-#In order to pause the execution of the code to be able to se img
-cv2.waitKey()
+lbl_video = Label(root)
+lbl_video.grid(column=0, row=4, columnspan=2)
 
-print("Code Completed")
+
+btn_iniciar_jugadores = Button(root, text = "Iniciar", command=iniciarJugadores)
+btn_iniciar_jugadores.grid(column=20, row=0, padx=2, pady=2)
+
+btn_finalizar_jugadores = Button(root, text = "Finalizar", command=finalizarJugadores)
+btn_finalizar_jugadores.grid(column=21, row=0, padx=2, pady=2)
+
+lbl_info_jugadores = Label(root, text = "A continuacion se muestran los jugadores")
+lbl_info_jugadores.grid(column=20, row=1)
+
+lbl_jugadores = Label(root)
+lbl_jugadores.grid(column=20, row=4, columnspan=2)
+
+
+root.mainloop()
