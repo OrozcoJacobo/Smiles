@@ -24,7 +24,7 @@ def visualizarJugadores():
             for (x, y, w, h) in face_coordinates:
                 cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
-                the_face = (x, y, w, h)
+                the_face = frame[y: y + h, x: x + w]
                 
                 face_grayscale = cv2.cvtColor(the_face, cv2.COLOR_BGR2GRAY)
 
@@ -32,7 +32,7 @@ def visualizarJugadores():
 
 
                 for(x_, y_, w_, h_) in smile_coordinates:
-                    cv2.rectangle(frame, (x_, y_), (x_ + w_, y_ + h_), (50, 50, 200), 2)
+                    cv2.rectangle(the_face, (x_, y_), (x_ + w_, y_ + h_), (50, 50, 200), 2)
 
 
             frame = imutils.resize(frame, width=640, height= 480)
