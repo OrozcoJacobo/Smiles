@@ -95,8 +95,8 @@ def elegirVideo():
 
 cap = None
 cap_jugadores = None
-trained_face_data = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-trained_smile_detector = cv2.CascadeClassifier('haarcascade_smile.xml')
+trained_face_data = cv2.CascadeClassifier('detecta_caras.xml')
+trained_smile_detector = cv2.CascadeClassifier('detecta_sonrisas.xml')
 
 root = Tk()
 
