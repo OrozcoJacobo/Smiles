@@ -35,7 +35,7 @@ def visualizarJugadores():
                     cv2.rectangle(the_face, (x_, y_), (x_ + w_, y_ + h_), (50, 50, 200), 2)
 
                     if len(smile_coordinates) > 0:
-                        cv2.putText(frame, 'sonriendo', (x, y + h + 40), fontScale = 3, fontFace = cv2.FONT_HERSHEY_PLAIN, color = (255,255,255))
+                        cv2.putText(frame, 'sonriendo', (x, y + h + 40), fontScale = 2, fontFace = cv2.FONT_HERSHEY_PLAIN, color = (255,255,255))
 
             frame = imutils.resize(frame, width=640, height= 480)
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -69,7 +69,7 @@ def visualizar():
 
             lbl_video.configure(image=img)
             lbl_video.image = img
-            lbl_video.after(30, visualizar)
+            lbl_video.after(10, visualizar)
         else: 
             lbl_info_video_path.configure(text="Aun no se ha seleccionado un video")
             lbl_video.image = ""
